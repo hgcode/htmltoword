@@ -1,4 +1,4 @@
-# require 'resolv-replace'
+require 'resolv-replace'
 module Htmltoword
   class Document
     include XSLTHelper

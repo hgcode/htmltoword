@@ -56,6 +56,10 @@ module Htmltoword
     # Generate a string representing the contents of a docx file.
     #
     def generate
+
+      dns_resolver = Resolv::DNS.new
+      Resolv::DefaultResolver.replace_resolvers([dns_resolver])
+      
       Zip::File.open(@template_path) do |template_zip|
         buffer = Zip::OutputStream.write_buffer do |out|
           template_zip.each do |entry|
